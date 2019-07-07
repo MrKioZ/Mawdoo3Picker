@@ -12,7 +12,7 @@ website = website.content
 soup = BeautifulSoup(website, 'html.parser')
 
 
-#define categories
+#Picks a random category
 scrapped_categories = []
 categories = soup.find_all("div", {"class":"category"})
 for category in categories:
@@ -21,9 +21,10 @@ for category in categories:
             scrapped_categories.append(category_item.find('a')['href'])
 
 shuffle(scrapped_categories)
-Choosen_item = url+choice(scrapped_categories)
+Choosen_Category = url+choice(scrapped_categories)
 
-website = get(Choosen_item)
+#Picks a ranadom Article from the Category
+website = get(Choosen_Category)
 website = website.content
 soup = BeautifulSoup(website, 'html.parser')
 articles = soup.find("ul", {'class': "row categories-list"})
@@ -35,7 +36,8 @@ for article in articles:
             scrapped_articles.append(article['href'])
 
 shuffle(scrapped_articles)
-Choosen_item = url+choice(scrapped_articles)
+Choosen_Article = url+choice(scrapped_articles)
 
+#Shows the Choosen Article to the user by opening Firefox
 os.chdir("C:\Program Files\Mozilla Firefox")
-os.system('firefox.exe '+Choosen_item)
+os.system('firefox.exe '+Choosen_Article)
