@@ -14,6 +14,3 @@ this will install all python modules automatically
 ```bash
 pip install -r requirements.txt
 ```
-
-## 📄 License
-MrKio bot is MPL V2 as found in the [License](https://github.com/MrKioZ/Mawdoo3Picker/License)
